@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
 /*
- * msg.c
+ * echo_define.h
  * Copyright (C) Bernhard Schuster 2011 <schuster.bernhard@googlemail.com>
  * 
  * echo is free software: you can redistribute it and/or modify it
@@ -18,14 +18,24 @@
  */
 
 
-#ifndef _ECHO_MSG_H_
-#define _ECHO_MSG_H_
+#ifndef _ECHO_DEFINE_H_
+#define _ECHO_DEFINE_H_
 
 #include <stdarg.h> /* tripple dot args */
 #include <stdio.h> /* printf */
 #include <string.h> /* string */
-#include "color.h"
+#include "echo_color.h"
+#include "echo_generic.h"
 
-void echo_msg(char *msg, ...);
 
-#endif /* _ECHO_MSG_H_ */
+#define POSITION_STR  "[file %s, line %d] "
+#define POSITION_ARGS  __FILE__, __LINE__
+
+#define echo_msg(_fmt,...) echo_generic(stdout, _fmt, COLOR_DEFAULT, "message", ##__VA_ARGS__)
+#define echo_info(_fmt, ...) echo_generic(stdout, _fmt, COLOR_GREEN, "info      ", ##__VA_ARGS__)
+#define echo_warning(_fmt, ...) echo_generic(stdout, _fmt, COLOR_ORANGE, "warning", ##__VA_ARGS__)
+#define echo_error(_fmt, ...) echo_generic(stderr, _fmt, COLOR_RED, "error ", ##__VA_ARGS__)
+#define echo_debug(_fmt, ...) echo_generic(stdout, POSITION_STR _fmt, COLOR_BLUE, "debug  ", POSITION_ARGS, ##__VA_ARGS__)
+
+
+#endif /* _ECHO_DEFINE_H_ */
