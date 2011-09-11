@@ -1,6 +1,6 @@
 /* -*- Mode: C; indent-tabs-mode: t; c-basic-offset: 4; tab-width: 4 -*- */
 /*
- * color.h
+ * echo_color.h
  * Copyright (C) Bernhard Schuster 2011 <schuster.bernhard@googlemail.com>
  * 
  * echo is free software: you can redistribute it and/or modify it
@@ -21,11 +21,11 @@
 #ifndef _ECHO_COLOR_H_
 #define _ECHO_COLOR_H_
 
-#define COLOR_GREEN "\033[32m"
-#define COLOR_RED "\033[31m"
-#define COLOR_ORANGE "\033[33m"
-#define COLOR_BLUE "\033[34m"
-#define COLOR_DEFAULT "\033[0m"
+#define ECHO_COLOR_GREEN "\033[32m"
+#define ECHO_COLOR_RED "\033[31m"
+#define ECHO_COLOR_ORANGE "\033[33m"
+#define ECHO_COLOR_BLUE "\033[34m"
+#define ECHO_COLOR_DEFAULT "\033[0m"
 
 
 #endif /* _ECHO_COLOR_H_ */
