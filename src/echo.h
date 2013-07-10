@@ -24,7 +24,12 @@
 #include <stdarg.h> /* tripple dot args */
 #include <stdio.h> /* printf */
 #include <string.h> /* string */
-#include "echo_color.h"
+
+#define ECHO_COLOR_GREEN "\033[32m"
+#define ECHO_COLOR_RED "\033[31m"
+#define ECHO_COLOR_ORANGE "\033[33m"
+#define ECHO_COLOR_BLUE "\033[34m"
+#define ECHO_COLOR_DEFAULT "\033[0m"
 
 #ifndef __WINDOWS__
 #define ECHO_GENERIC_PREFIX_STR "[%s %s %s]"
@@ -46,6 +51,5 @@
 #define echo_warning(msg, ...) echo_generic(stdout, msg, "warning", ECHO_COLOR_ORANGE, ##__VA_ARGS__)
 #define echo_error(msg, ...) echo_generic(stderr, msg, "error ", ECHO_COLOR_RED, ##__VA_ARGS__)
 #define echo_debug(msg, ...) echo_generic(stdout, ECHO_DEBUG_POSITION_STR msg, "debug  ", ECHO_COLOR_BLUE, ECHO_DEBUG_POSITION_ARGS, ##__VA_ARGS__)
-
 
 #endif /* _ECHO_DEFINE_H_ */
